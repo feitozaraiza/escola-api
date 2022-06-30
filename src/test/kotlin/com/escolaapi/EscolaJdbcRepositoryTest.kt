@@ -13,6 +13,6 @@ internal class EscolaJdbcRepositoryTest { // utilizando para testar os sqls
 
     @Test
     fun `jdbc test`() {
-        escolaJdbcRepository.listAllEscola();
+        escolaJdbcRepository.findAll();
     }
 }

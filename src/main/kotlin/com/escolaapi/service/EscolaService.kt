@@ -1,6 +1,5 @@
 package com.escolaapi.service
 
-import com.escolaapi.EscolaJdbcRepository
 import com.escolaapi.dto.EscolaDTO
 import com.escolaapi.dto.EscolaUpdateDTO
 import com.escolaapi.exception.NotFoundException
@@ -16,15 +15,15 @@ import org.springframework.stereotype.Service
 class EscolaService (
     private val repository: EscolaRepository,
     private val escolaViewMapper: EscolaViewMapper,
-    private val escolaJdbcRepository: EscolaJdbcRepository,
     private val notFoundExceptionMessage: String = "Endereço não encontrado"
 ) {
     fun listAllEscola(
-        nome_da_escola: String?
-    ): List<EscolaDTO>? {  // tipo generico, operador diamante, pode colocar tudo e ele assume valor
-        val listEscola = escolaJdbcRepository.findAll()   // page é uma coleção
+        nome_da_escola: String?,
+        pageable: Pageable
+    ):  Page<EscolaView>{  // tipo generico, operador diamante, pode colocar tudo e ele assume valor
+        val listEscola = repository.findAll(pageable)   // page é uma coleção
 
-        return listEscola?.map { escolaViewMapper.map(it) }  // map vai mapear
+        return listEscola.map { escolaViewMapper.map(it) }  // map vai mapear
     }
 
     fun createEscola(form: Escola): EscolaDTO {

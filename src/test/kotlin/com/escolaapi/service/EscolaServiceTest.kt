@@ -1,6 +1,5 @@
 package com.escolaapi.service
 
-import com.escolaapi.EscolaJdbcRepository
 import com.escolaapi.dto.EscolaDTO
 import com.escolaapi.mapper.EscolaViewMapper
 import com.escolaapi.model.view.Escola
@@ -18,8 +17,7 @@ import java.util.Optional
 internal class EscolaServiceTest {
     private val repository: EscolaRepository = mockk()
     private val escolaViewMapper: EscolaViewMapper = mockk()
-    private val escolaJdbcRepositoryMock : EscolaJdbcRepository = mockk()
-    private val escolaService = EscolaService(repository, escolaViewMapper, escolaJdbcRepositoryMock)
+    private val escolaService = EscolaService(repository, escolaViewMapper)
 
     @Test
     fun ` Should Save Escola and Return EscolaDTO `() {
@@ -92,7 +90,7 @@ internal class EscolaServiceTest {
         assertEquals(escolaUpdateFinal.quantidade_funcionarios, escolaUpdateDTO.quantidade_funcionarios)
     }
 
-/*    @Test
+    @Test
     fun ` Should List All Escola ` () {
         val escola = EscolaFixture.defaultEscola()
         val escolaDTO = EscolaDTOFixture.defaultEscolaDTO()
@@ -107,6 +105,6 @@ internal class EscolaServiceTest {
 
         assertEquals(pagesEscolasViews.totalElements, pageEscolasFromRepository.totalElements)
         assertEquals(pagesEscolasViews.first().id, pageEscolasFromRepository.first().id)
-    }*/
+    }
 }
 

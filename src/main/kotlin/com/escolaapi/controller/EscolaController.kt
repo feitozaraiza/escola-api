@@ -29,8 +29,8 @@ class EscolaController(
     fun listAllEscola(
         @RequestParam(required = false) nome_da_escola: String?,  // solicitação de parametro no get
         @PageableDefault(size = 5) page: Pageable   // limitando o q aparece
-    ): List<EscolaDTO>? {
-        return escolaService.listAllEscola(nome_da_escola)  // service onde vai executar a regra do negocio
+    ): Page<EscolaView> {
+        return escolaService.listAllEscola(nome_da_escola,page)  // service onde vai executar a regra do negocio
     }
 
     @PostMapping // requisição do tipo POST
