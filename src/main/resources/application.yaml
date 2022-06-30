@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/raiza  #banco
+    username: postgres
+    password: 123
+    schema: ifood
+  application:  # propria aplicação da api
+    name: escola-api
+server:
+  port: 9999  # toda vez q iniciar vai bater nessa porta
