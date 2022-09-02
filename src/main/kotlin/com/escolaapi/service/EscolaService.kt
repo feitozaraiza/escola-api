@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service
 class EscolaService (
     private val repository: EscolaRepository,
     private val escolaViewMapper: EscolaViewMapper,
-    private val notFoundExceptionMessage: String = "Endereço não encontrado"
+    private val notFoundExceptionMessage: String = "Escola não encontrada"
 ) {
     fun listAllEscola(
         nome_da_escola: String?,
