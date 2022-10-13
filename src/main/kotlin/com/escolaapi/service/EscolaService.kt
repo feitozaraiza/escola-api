@@ -16,6 +16,7 @@ class EscolaService (
     private val repository: EscolaRepository,
     private val escolaViewMapper: EscolaViewMapper,
     private val notFoundExceptionMessage: String = "Escola não encontrada"
+
 ) {
     fun listAllEscola(
         nome_da_escola: String?,
@@ -44,10 +45,15 @@ class EscolaService (
         repository.deleteById(id)
     }
 
+    fun listAllEscolaofPernambuco(): List<Escola> {
+        val listEscola = repository.findAll()
+        val listEscolasFiltradas =  listEscola.filter { it.estado == "pernambuco" }
+
+        return listEscolasFiltradas
+    }
+
 }
 
 // camada BUSINESS , tem as regraas de negocio
 
 // teste
-
-

@@ -1,4 +1,4 @@
-package com.escolaapi.controller    // o nome pode ser controller ou Route , recebe requisiçõs.
+package com.escolaapi.controller
 
 import com.escolaapi.dto.EscolaDTO
 import com.escolaapi.dto.EscolaUpdateDTO
@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.util.UriComponentsBuilder
 import javax.transaction.Transactional
-
 
 // mapeia os end points : ex: /escola
 
@@ -61,6 +60,11 @@ class EscolaController(
     @CacheEvict(value = ["escola"], allEntries = true)
     fun deleteEscola(@PathVariable id: Int){ // variavel de caminho é o path variable
         escolaService.deletar(id)
+    }
+
+    @GetMapping("/listAllEscolaofPernambuco")
+    fun listAllEscolaofPernambuco(): List<Escola> {
+        return escolaService.listAllEscolaofPernambuco()  // service onde vai executar a regra do negocio
     }
 
 

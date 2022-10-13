@@ -8,7 +8,7 @@ object EscolaFixture {
 
     fun defaultEscola (): Escola {
         return Escola(
-            id = 1,
+            id = 666,
             nome_da_escola = "Salesiano",
             estado = "PE",
             quantidade_alunos = 50,

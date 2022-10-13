@@ -3,6 +3,8 @@ package com.escolaapi.service
 import com.escolaapi.dto.EscolaDTO
 import com.escolaapi.dto.EscolaUpdateDTO
 import com.escolaapi.model.view.Escola
+import org.springframework.jdbc.core.RowMapper
+import java.sql.ResultSet
 
 object EscolaDTOFixture {
 
@@ -18,3 +20,8 @@ object EscolaDTOFixture {
 }
 
 // um fixture pra cada objeto
+
+
+
+
+

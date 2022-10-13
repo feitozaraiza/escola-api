@@ -9,10 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest
 internal class EscolaJdbcRepositoryTest { // utilizando para testar os sqls
 
     @Autowired
-    lateinit var escolaJdbcRepository: EscolaJdbcRepository
+//    lateinit var escolaJdbcRepository: EscolaJdbcRepository
 
     @Test
     fun `jdbc test`() {
-        escolaJdbcRepository.findAll();
+ //       escolaJdbcRepository.findAll();
     }
 }
+
+// teste p mapear o DTO
